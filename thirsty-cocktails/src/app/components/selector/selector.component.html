@@ -1,0 +1,13 @@
+<div class="selector-container" (clickOutside)="closeDropdown()">
+  <button class="selector-header" (click)="toggleDropdown()">
+    {{currentChoice.length ? currentChoice : 'Select...'}}
+    <i class="fas fa-chevron-down"></i>
+  </button>
+
+  <div class="selector-dropdown" *ngIf="dropdownOpen">
+    <div class="selector-item" *ngFor="let category of categories; let i = index">
+      <a (click)="choose(category, i)">{{ category }}</a>
+      <i *ngIf="currentIndex === i" class="fas fa-check"></i>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<thirsty-toolbar></thirsty-toolbar>
+
+<div class="configuration-container">
+  <div class="search" [ngClass]="{'not-allowed': searchControl.disabled}">
+    <input [formControl]="searchControl" class="search-field" type="search" placeholder="Search for a cocktail...">
+  </div>
+
+  <div class="categories-container"  *ngIf="!searchControl.value">
+    <div *ngIf="(categories$ | async) as categories ">
+      <thirsty-selector [categories]="categories" (onChoose)="showBasedOnCategory($event)"></thirsty-selector>
+    </div>
+
+    <button class="next-button" [ngClass]="{'not-allowed': searchControl.disabled}" (click)="goToLetter(false)" *ngIf="currentLetterIndex">
+      <i class="fas fa-arrow-left"></i>
+    </button>
+
+      <button  class="next-button" [ngClass]="{'not-allowed': searchControl.disabled}" (click)="goToLetter(true)" *ngIf="currentLetterIndex < alphabet.length - 1" >
+        <i class="fas fa-arrow-right"></i>
+      </button>
+
+  </div>
+</div>
+
+  <ng-container *ngIf="(displayedRecipes$ | async) as cocktails; else notFound">
+    <div class="grid-container">
+      <thirsty-card *ngFor="let cocktail of cocktails"
+      [cocktail]="cocktail">
+      </thirsty-card>
+    </div>
+
+  </ng-container>
+
+
+<ng-template #notFound>
+  <p class="not-found">No cocktails found.</p>
+</ng-template>
+
+
+
+

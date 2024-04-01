@@ -1,0 +1,19 @@
+.selector-container {
+  @apply relative max-w-md mx-8 min-w-52;
+}
+
+.selector-header {
+  @apply flex items-center justify-between w-full bg-white dark:bg-gray-700 p-4 rounded-md shadow-md focus:outline-none text-slate-800 dark:text-white;
+}
+
+.selector-dropdown {
+  @apply absolute left-0 w-full bg-white mt-1 rounded-md shadow-lg;
+}
+
+.selector-item {
+  @apply flex py-2 px-4 hover:bg-gray-100 dark:bg-gray-700 dark:text-white cursor-pointer justify-between;
+}
+
+.selector-item i {
+  @apply ml-2;
+}

@@ -1,3 +1,18 @@
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+body {
+  @apply bg-green-50 dark:bg-gray-600;
+}
+
+p {
+  @apply font-sans;
+}
+
+.not-allowed{
+  @apply opacity-50 border border-gray-400 pointer-events-none;
+}
