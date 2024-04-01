@@ -12,4 +12,8 @@ export class CardComponent {
   get subtitle() : string {
     return `Contains: ${this.cocktail?.strIngredient1}, ${this.cocktail?.strIngredient2}, ${this.cocktail?.strIngredient3 ?? ''} etc. `
   }
+
+  get cocktailURL() : string {
+    return `/cocktails/${this.cocktail?.idDrink}`;
+  }
 }

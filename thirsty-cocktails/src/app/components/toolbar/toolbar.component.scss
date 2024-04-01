@@ -1,5 +1,5 @@
 .toolbar {
-  @apply flex justify-between items-center p-4 bg-slate-800;
+  @apply flex justify-between items-center p-4 bg-slate-800 sticky top-0 z-50;
 }
 
 .logo {

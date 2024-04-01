@@ -1,1 +1,28 @@
-<p>cocktail works!</p>
+<thirsty-toolbar></thirsty-toolbar>
+
+<div class="overview-container">
+
+  <div>
+    <button class="home-button" routerLink="/home">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </button>
+
+    <div class="detailed-overview" *ngIf="cocktail">
+      <div class="cocktail-header">
+        <img [src]="cocktail.strDrinkThumb">
+      </div>
+      <div class="cocktail-content">
+        <h2> {{cocktail.strDrink}}</h2>
+        <h5>{{cocktail.strAlcoholic}}, {{cocktail.strCategory}}</h5>
+        <hr/>
+        <div class="ingredients">
+          <p *ngFor="let ingredient of combinedIngredients" class="ingredient">{{ingredient}}</p>
+        </div>
+        <hr/>
+
+        <p class="instructions">{{cocktail.strInstructions}}</p>
+      </div>
+    </div>
+  </div>
+</div>

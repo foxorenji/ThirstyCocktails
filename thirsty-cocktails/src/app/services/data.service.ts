@@ -35,4 +35,10 @@ export class DataService {
     return this.http.get<{ drinks: Cocktail[] }>(`${this.apiUrl}filter.php?c=${category}`).pipe(
       map(response => response.drinks));
   }
+
+  getCocktailById(id: string): Observable<any> {
+    return this.http.get<{ drinks: Cocktail[] }>(`${this.apiUrl}lookup.php?i=${id}`).pipe(
+      map(response => response.drinks[0]));
+  }
+
 }

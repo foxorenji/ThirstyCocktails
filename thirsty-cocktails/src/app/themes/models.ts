@@ -8,6 +8,7 @@ export type ThemeMode = Theme.Dark | Theme.Light;
 export const EMPTY_CHOICE = 'Select...'
 
 export interface Cocktail {
+  [key: string]: string | null; // for properties like ingredients/measures
   dateModified: string;
   idDrink: string;
   strAlcoholic: string;
@@ -17,22 +18,6 @@ export interface Cocktail {
   strIngredient1: string;
   strIngredient2 : string;
   strIngredient3 : string;
-  strIngredient4 : string;
-  strIngredient5 : string;
-  strIngredient6 : string;
-  strIngredient7 : string;
-  strIngredient8 : string;
-  strIngredient9 : string;
-  strIngredient10 : string;
   strInstructions: string;
-  strMeasure1 : string;
-  strMeasure2 : string;
-  strMeasure3 : string;
-  strMeasure4 : string;
-  strMeasure5 : string;
-  strMeasure6 : string;
-  strMeasure7 : string;
-  strMeasure8 : string;
-  strMeasure9 : string;
-  strMeasure10 : string;
+
 }
