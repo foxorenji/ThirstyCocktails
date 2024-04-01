@@ -48,7 +48,7 @@ export class CocktailComponent {
         const measure = this.cocktail[measureKey];
 
         if (ingredient && measure) {
-          combined.push(`${measure.trim()} ${ingredient.trim()}`);
+          combined.push(`${measure.trim()} ${ingredient.trim()}`.toLowerCase());
         } else if (ingredient) {
           combined.push(ingredient);
         }
