@@ -2,8 +2,7 @@
   <img class="image" [src]="cocktail?.strDrinkThumb" alt="Cocktail Image">
   <div class="information">
     <div class="title">{{cocktail?.strDrink}}</div>
-    <p class="subtitle">{{subtitle}}</p>
-
+    <p class="subtitle" *ngIf="cocktail?.strIngredient1">{{subtitle}}</p>
     <hr/>
     <button class="details-button" [routerLink]="cocktailURL">
     See more

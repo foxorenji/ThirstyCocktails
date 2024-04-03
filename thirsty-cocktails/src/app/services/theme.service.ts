@@ -29,7 +29,11 @@ export class ThemeService {
   set(): void {
     const theme = this.pullThemeFromStorage();
     if (theme === Theme.Dark) {
-      this.toggle();
+      document.documentElement.classList.add('dark');
+    }
+    else {
+      document.documentElement.classList.remove('dark');
+
     }
   }
 }
