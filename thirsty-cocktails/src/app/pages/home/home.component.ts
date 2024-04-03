@@ -1,8 +1,8 @@
-import {Component} from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import {ThemeService} from "../../services/theme.service";
 import {DataService} from "../../services/data.service";
 import {FormControl} from "@angular/forms";
-import {debounceTime, tap} from "rxjs";
+import {debounceTime, Subject, takeUntil, tap} from "rxjs";
 import {EMPTY_CHOICE} from "../../themes/models";
 
 @Component({
@@ -10,10 +10,12 @@ import {EMPTY_CHOICE} from "../../themes/models";
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnDestroy {
   public categories$ = this.data.getCategories();
 
   searchControl = new FormControl<string>('');
+
+  private destroyed$ = new Subject<void>();
 
   public displayedRecipes$ = this.data.getCocktailsByFirstLetter('A');
 
@@ -30,7 +32,8 @@ export class HomeComponent {
         } else {
           this.resetList();
         }
-      })
+      }),
+      takeUntil(this.destroyed$),
     ).subscribe();
   }
 
@@ -67,5 +70,10 @@ export class HomeComponent {
   private resetList(): void {
     this.currentLetterIndex = 0;
     this.fetchCocktailsByLetter();
+  }
+
+  public ngOnDestroy(): void {
+    this.destroyed$.next();
+    this.destroyed$.complete();
   }
 }

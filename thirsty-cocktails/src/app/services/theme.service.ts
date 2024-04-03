@@ -12,8 +12,8 @@ export class ThemeService {
   public isDarkMode = false;
 
   toggle(): void {
-    document.documentElement.classList.toggle('dark');
     this.isDarkMode = !this.isDarkMode;
+    document.documentElement.classList.toggle('dark');
     this.setThemeToStorage();
   }
 
@@ -33,7 +33,6 @@ export class ThemeService {
     }
     else {
       document.documentElement.classList.remove('dark');
-
     }
   }
 }
